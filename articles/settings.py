@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'article.apps.ArticleConfig',
     # third party apps
     'rest_framework',
-
+    "rest_framework.authtoken"
 
 ]
 

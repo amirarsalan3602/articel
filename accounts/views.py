@@ -15,11 +15,8 @@ class LoginView(APIView):
         if srz_data.is_valid():  # shouldn't check the phone is unique
             the_code = randint(1, 9)
             phone = srz_data.validated_data["phone_number"]
-            # RGScode.objects.create(
-            #     phone_number=phone, code=the_code)
             cache.set(the_code, phone)
             print(the_code)
-            # if the session didn't work in DRF get the phone again in user verify view !
             return Response(data=srz_data.data, status=status.HTTP_200_OK)
         return Response(data=srz_data.errors, status=status.HTTP_400_BAD_REQUEST)
 
